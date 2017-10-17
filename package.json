@@ -1,0 +1,30 @@
+{
+	"name": "BasicES6DevKit",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"js-watch": "globify --watch --debug 'src/*.js' -t babelify -o build",
+		"js-build": "globify 'src/*.js' -t babelify -o build && npm run js-uglify",
+		"js-uglify": "uglifyjs-folder build -e --pattern \"**/*.js,!**/*min.js\" -o build --compress --mangle",
+		"browser-sync": "browser-sync start --server --files \"build/*.js\" --index \"/test.html\" --port 9999 --no-ui --no-notify",
+		"watch": "npm run js-watch & npm run browser-sync",
+		"build": "npm run js-build && npm run js-uglify"
+	},
+	"babel": {
+		"presets": [
+			"es2015"
+		]
+	},
+	"author": "Julian Winkel <code@neuerituale.com>",
+	"license": "MIT",
+	"devDependencies": {
+		"babel-preset-es2015": "^6.24.1",
+		"babelify": "^7.3.0",
+		"browser-sync": "^2.18.12",
+		"globify": "^2.1.0",
+		"jquery": "^3.2.1",
+		"uglifyjs-folder": "^1.2.0"
+	}
+}

@@ -1,2 +1,2 @@
-# BasicES5DevKit
-Basic ES5 Development Kit with Babel, Globify and Browser Sync
+# BasicES6DevKit
+Basic ES6 Development Kit with Babel, Globify and Browser Sync
